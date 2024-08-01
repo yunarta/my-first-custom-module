@@ -1,0 +1,15 @@
+#cloud-config
+users:
+  - name: your_username
+    sudo: ALL=(ALL) NOPASSWD:ALL
+    groups: sudo
+    home: /home/your_username
+    shell: /bin/bash
+    password: your_encrypted_password
+    ssh_authorized_keys:
+      - ssh-rsa your_public_ssh_key
+
+my_custom_module: {}
+
+runcmd:
+  - echo "Cloud-init is working!" > /var/tmp/cloud-init-test.log
